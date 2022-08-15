@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/beaJeniuS.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,8 +16,1070 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>CSS Grid Layout Module</h3>
+					<p>
+						<small>Presentation created by <a href="https://github.com/beaJenius" target="_blank">Evgeny Bondareko</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Introduction</h3>
+						<p>
+							<small>This module defines a two-dimensional grid-based layout system, optimized for user interface design. In
+								the grid layout model, the children of a grid container can be positioned into arbitrary slots in a
+								predefined flexible or fixed-size layout grid.</small>
+						</p>
+					</section>
+					<section>
+						<h2>Overview</h3>
+						<p>
+							<small>Unlike the single-axis–oriented Flexible Box Layout, Grid Layout is optimized for 2-dimensional layouts those alignment
+							of content is desired in both dimensions.</small>
+						</p>
+						<figure>
+							<picture>
+								<img src="./assets/images/flex-example.jpg" alt="flex-box example">
+							</picture>
+							<figcaption>Flex Layout Example</figcaption>
+						</figure>
+						<figure>
+							<picture>
+								<img src="./assets/images/grid-example.jpg" alt="grid-box example">
+							</picture>
+							<figcaption>Grid Layout Example</figcaption>
+						</figure>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Concepts and Terminology</h3>
+							<p>
+								<small>
+									In <span class="emphase">grid layout</span>, the content of a grid container is laid out by positioning
+									and aligning it into a grid.
+									The <span class="emphase">grid</span> is an intersecting set of horizontal and vertical grid lines that
+									divides the grid container`s space into grid areas. Grid
+									items must be placed into a grid container. There are two sets of grid lines: one set defining <span
+										class="emphase">columns</span> that run along the
+									block axis, and an orthogonal set defining <span class="emphase">rows</span> along the inline axis.
+								</small>
+							</p>
+					</section>
+					<section>
+						<h2>Grid lines</h3>
+							<p>
+								<small>
+									<span class="emphase">Grid lines</span> are the horizontal and vertical dividing lines of the grid. A grid line exists on either side of a column or
+									row. They can be referred to by numerical index, or by an author-specified name. A grid item references the grid lines
+									to determine its position within the grid using the grid-placement properties.
+								</small>
+							</p>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-lines.jpg" alt="grid lines">
+								</picture>
+								<figcaption>Grid lines: Three in the block axis and four in the inline axis.</figcaption>
+							</figure>
+					</section>
+					<section>
+						<h2>Grid Tracks and Cells</h3>
+							<p>
+								<small>
+									A <span class="emphase">grid track</span> is a generic term for a grid column or grid row. It is the space between two adjacent grid lines. Each grid
+									track is assigned a sizing function, which controls how wide or tall the column or row may grow. Adjacent grid tracks
+									can be also separated by <span class="emphase">gutters</span>.
+								</small>
+							</p>
+							<p>
+								<small>
+									A <span class="emphase">grid cell</span> is the intersection of a grid row and a grid column. It is the smallest unit of the grid that can be
+									referenced when positioning grid items.
+								</small>
+							</p>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-tracks-cells.jpg" alt="grid tracks">
+								</picture>
+								<figcaption>Grid lines: Three in the block axis and four in the inline axis.</figcaption>
+							</figure>
+					</section>
+					<section>
+						<h2>Grid Areas</h3>
+							<p>
+								<small>
+									A <span class="emphase">grid area</span> is the logical space used to lay out one or more grid items. A grid area consists of one or more adjacent
+									grid cells. It is bound by four grid lines, one on each side of the grid area. A grid area can be named explicitly using
+									the <span class="emphase">grid-template-areas</span> property of the grid container, or referenced implicitly by its bounding grid lines. A grid item
+									is assigned to a grid area using the grid-placement properties.
+								</small>
+							</p>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-areas.jpg" alt="grid areas">
+								</picture>
+								<figcaption>Grid areas example.</figcaption>
+							</figure>
+					</section>
+					<section>
+						<h2>Grid items</h3>
+							<p>
+								<small>
+									The grid items of a grid container are boxes representing its inflow contents.
+									Each in-flow child of a grid container becomes a <span class="emphase">grid item</span>.
+								</small>
+							</p>
+					</section>
+					<section>
+						<h2>Nested items</h3>
+							<p>
+								<small>
+									A grid item can itself be a grid container by giving it display: grid. In the general case the layout of this <span class="emphase">nested
+									grid</span>`s contents will be independent of the layout of the <span class="emphase">parent grid</span> it participates in.
+								</small>
+							</p>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-nested.jpg" alt="grid nested">
+								</picture>
+								<figcaption>Nested gids.</figcaption>
+							</figure>
+					</section>
+					<section>
+						<h2>Subgridded Items</h3>
+							<p>
+								<small>
+									In some cases it might be necessary for the contents of multiple grid items to align to each other. A nested grid can
+									defer the definition of its rows and/or columns to its parent grid container, making it a <span class="emphase">subgrid</span>. In this case, the
+									grid items of the subgrid participate in sizing the parent grid, allowing the contents of both grids to align.
+								</small>
+							</p>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-subgrid.jpg" alt="grid nested">
+								</picture>
+								<figcaption>Subgrided items.</figcaption>
+							</figure>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Defining the Grid</h3>
+					</section>
+					<section>
+						<h2>Grid container</h3>
+						<p>
+							<small>
+								To define grid containers, we need to set the <span class="emphase">grid</span> or <span class="emphase">inline grid</span> values for the <span class="emphase">display</span> property.
+							</small>
+						</p>
+						<p>
+							<small>
+								<span class="emphase">grid</span> this value causes an element to generate a grid container box that is <span class="emphase">block-level</span> when placed in flow layout.
+							</small>
+						</p>
+						<p>
+							<small>
+								<span class="emphase">inline-grid</span> this value causes an element to generate an grid container box that is <span class="emphase">inline-level</span> when placed in flow layout.
+							</small>
+						</p>
+					</section>
+					<section>
+						<h2>Creation</h3>
+						<p>
+							<small>
+								After adding <span class="emphase">display: grid</span>, all child elements of the container become grid-items.
+							</small>
+						</p>
+						<div class="columns">
+							<pre data-id="code-animation">
+								<code class="hljs" data-trim data-line-numbers>
+									<div class="grid">
+										<div class="element">1</div>
+										<div class="element">2</div>
+										<div class="element">3</div>
+										<div class="element">4</div>
+										<div class="element">5</div>
+										<div class="element">6</div>
+										<div class="element">7</div>
+										<div class="element">8</div>
+										<div class="element">9</div>
+									</div>
+									// - CSS
+									.grid {
+										display: grid;
+									}
+								</code>
+							</pre>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-define.jpg" alt="grid define">
+								</picture>
+							</figure>
+						</div>
+					</section>
+					<section>
+						<h2>Explicit grid</h3>
+							<p>
+								<small>
+									After creating a grid container, an explicit grid will be defined. If you do not specify the number of columns
+									and rows, it will be the first cell of the grid. All other cells will be placed in an implicit grid. 
+								</small>
+							</p>
+							<p>
+								<small>
+									For rows/columns of an explicit grid, we can control their number, height/width using the properties: <span class="emphase">grid-template-columns</span>, <span class="emphase">grid-template-rows</span>.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-rows: 50px;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-define-explicit.jpg" height="200" alt="grid define">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Implicit grid</h3>
+							<p>
+								<small>
+									For all elements that did not have enough space in the explicit grid, an <span class="emphase">implicit grid</span> is created by the grid container.
+								</small>
+							</p>
+							<p>
+								<small>
+									For rows/columns of an implicit grid, we can control their height/width using the properties: <span class="emphase">grid-auto-columns</span>, <span class="emphase">grid-auto-rows</span>.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-rows: 50px;
+											grid-auto-rows: 30px;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-define-implicit.jpg" height="200" alt="grid define">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Columns management</h3>
+							<p>
+								<small>
+									To create multiple columns, we need to write down the sizes of the columns separated by a space in the property:
+								</small>
+							</p>
+							<p>
+								<small>
+									<span class="emphase">grid-template-columns: column-width column-width column-width;</span>
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-rows: 50px;
+											grid-template-columns: 100px
+																					   50px
+																					   75px;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-define-3-columns.jpg" height="200" alt="grid 3 columns">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Rows management</h3>
+							<p>
+								<small>
+									To create multiple rows, we need to write down the sizes of the rows separated by a space in the :
+								</small>
+							</p>
+							<p>
+								<small>
+									<span class="emphase">grid-template-rows: row-height row-height;</span>
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-rows: 75px 50px;
+											grid-template-columns: 100px
+																					   50px
+																					   75px;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-define-2-rows.jpg" height="200" alt="grid 2 rows">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Grid gutters</h3>
+							<p>
+								<small>
+									Gutters are used to separate tracks. We can set gutter values for columns and rows simultaneously using
+									the <span class="emphase">grid-gap</span> property.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										grid-gap: 5px;
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-gap.jpg" height="200" alt="grid 2 rows">
+									</picture>
+								</figure>
+							</div>
+							<p>
+								<small>
+									You can also set gutter sizes separately for columns using <span class="emphase">column-gap</span> and 
+									for rows using the <span class="emphase">row-gap</span> property.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										column-gap: 10px;
+										row-gap: 5px;
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-gap-column-row.jpg" height="200" alt="grid 2 rows">
+									</picture>
+								</figure>
+							</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Size management</h3>
+						<p>
+							<small>
+								This part describes grid track sizes management and the units of measurement used.
+							</small>
+						</p>
+					</section>
+					<section>
+						<h2>Fixed sizes</h3>
+						<p>
+							<small>
+								The size of tracks can be set using any unit of length.
+							</small>
+						</p>
+						<p>
+							<small>
+								In this example the dimensions in pixels are used.
+							</small>
+						</p>
+						<div class="columns">
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									.grid {
+										display: grid;
+										grid-template-columns: 100px
+																					50px
+																					100px;
+										grid-template-rows: 75px
+																					50px
+																					20px;
+									}
+								</code>
+							</pre>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-fixed-sizes.jpg" height="200" alt="grid fixed sizes">
+								</picture>
+							</figure>
+						</div>
+					</section>
+					<section>
+						<h2>Sizes in percents</h3>
+							<p>
+								<small>
+									The grid container allows you to use percentages for a set of sizes. 
+									At the same time, if the sum of the dimensions is less than one hundred percent, the grid elements will not fill it
+									completely.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-columns: 20%
+																						50%
+																						30%;
+											grid-template-rows: 50%
+																						25%
+																						25%;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-percent-sizes.jpg" height="200" alt="grid percents sizes">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Sizes in fraction</h3>
+							<p>
+								<small>
+									An additional unit <span class="emphase">fr</span> of length has been developed specifically for Grid Layout. It allows you to create flexible grid
+									tracks. It represents a fraction of the free space of the container.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-columns:
+															1fr 1fr 1fr;
+											grid-template-rows:
+															1fr 1fr 1fr;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-fraction-sizes.jpg" height="150" alt="grid fraction sizes">
+									</picture>
+								</figure>
+							</div>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-columns: 
+															1fr 2fr 1fr;
+											grid-template-rows:
+															1fr 2fr 1fr;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-fraction-sizes-1-2-1.jpg" height="150" alt="grid fraction sizes">
+									</picture>
+								</figure>
+							</div>
+						</section>
+					<section>
+						<h2>Combining units</h3>
+							<p>
+								<small>
+									It is possible to combine different measurement units.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-columns: 50px
+																						20%
+																						1fr;
+											grid-template-rows: 20px
+																						50%
+																						1fr;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-combine-sizes.jpg" height="200" alt="grid fraction sizes">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Auto size</h3>
+							<p>
+								<small>
+									It is possible to use the <span class="emphase">auto</span> value to determine track sizes.
+									In this case, the size of the track will be set to the size of the content.
+								</small>
+							</p>
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									.grid {
+										width: 200px;
+										height: 200px;
+										display: grid;
+										grid-template-columns: auto 20% 1fr;
+										grid-template-rows: auto 50% 1fr;
+									}
+								</code>
+							</pre>
+							<div class="columns">
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-size-auto-small.jpg" height="250" alt="grid fraction sizes">
+									</picture>
+								</figure>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-size-auto-big.jpg" height="250" alt="grid fraction sizes">
+									</picture>
+								</figure>
+							</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Additional</h3>
+							<p>
+								<small>
+									This part describes additional functions.
+								</small>
+							</p>
+					</section>
+					<section>
+						<h2>Naming Grid Lines</h3>
+							<p>
+								<small>
+									Line names can make the grid-placement properties easier to understand and maintain.
+									Line names can be explicitly assigned with the <span class="emphase">grid-template-rows</span> and <span class="emphase">grid-template-columns</span> properties, or implicitly
+									assigned by named grid areas with the <span class="emphase">grid-template-areas</span> property.
+								</small>
+							</p>
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									.grid {
+										grid-template-columns: 
+										[first] auto [second] 20% [third] 1fr [fourth];
+										grid-template-rows: 
+										[header-start] auto [main-start] 50% 
+										[footer-start] 1fr [footer-end];
+									}
+								</code>
+							</pre>
+					</section>
+					<section>
+						<h2>Repeating Rows and Columns</h3>
+							<p>
+								<small>
+									The <span class="emphase">repeat()</span> notation represents a repeated fragment of the track list to be written in a more compact form.
+								</small>
+							</p>
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									grid-template-columns: 100px 100px 100px;
+									grid-template-columns: 1fr 1fr 1fr;
+									grid-template-rows: 100px 100px 100px;
+									grid-template-rows: 1fr 1fr 1fr;
+									grid-template-columns: 1fr 100px 1fr 100px;
+								</code>
+							</pre>
+							<p>
+								<small>
+									These records have the same meaning.
+								</small>
+							</p>
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									grid-template-columns: repeat(3, 100px);
+									grid-template-columns: repeat(3, 1fr);
+									grid-template-rows: repeat(3, 100px);
+									grid-template-rows: repeat(3, 1fr);
+									grid-template-columns: repeat(2, 1fr 100px);
+								</code>
+							</pre>
+
+						</section>
+					<section>
+						<h2>fit-content</h3>
+							<p>
+								<small>
+									The fit-content value allows the track to adjust to the size of the content, but only up to the specified limit.
+								</small>
+
+							</p>
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									grid-template-columns: fit-content(200px) 1fr 1fr;
+								</code>
+							</pre>
+							<div class="columns">
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-fit-content-small.jpg" height="250" alt="grid fit content">
+									</picture>
+								</figure>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-fit-content-big.jpg" height="250" alt="grid fit content">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>minmax</h3>
+							<p>
+								<small>
+									The <span class="emphase">minmax()</span> function is used to limit the maximum and minimum sizes of the grid track.
+									It defines a track size range greater than or equal to min and less than or equal to max.
+								</small>
+							</p>
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									grid-template-columns: 1fr minmax(100px, 150px) 1fr;
+								</code>
+							</pre>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-minmax.jpg" height="250" alt="grid minmax">
+								</picture>
+							</figure>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Grid areas</h3>
+							<p>
+								<small>
+									A <span class="emphase">grid area</span> is the logical space used to lay out one or more grid items. A grid area consists of one or more adjacent
+									grid cells. It is bound by four <span class="emphase">grid lines</span>, one on each side of the grid area, and participates in the sizing of the
+									grid tracks it intersects. A grid area can be named explicitly using the <span class="emphase">grid-template-areas</span> property of the grid
+									container, or referenced implicitly by its bounding grid lines.
+								</small>
+							</p>
+					</section>
+					<section>
+						<h2>Grid areas example</h3>
+							<p>
+								<small>
+									Consider an example of a simple page to understand how grid areas work. 
+								</small>
+							</p>
+							<p>
+								<small>
+									If we set the structure specified below, we will get an incorrect incorrect result.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										<div class="grid">
+											<header class="header">Header</header>
+											<aside class="aside">Aside</aside>
+											<main class="content">Main</main>
+											<nav class="adv">Navigation</nav>
+											<footer class="footer">Footer</footer>
+										</div>
+										display: grid;
+										grid-template-columns: 1fr 3fr 1fr;
+										grid-template-rows: 100px 1fr 100px;
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-area-wrong-struct.jpg" alt="grid wrong struct">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Grid areas example (continue)</h3>
+							<p>
+								<small>
+									To get the desired page structure, we need to set names for the grid zones using the <span class="emphase">grid-template-areas</span> property.
+									And then set the grid element area using the <span class="emphase">grid-area</span> property.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.grid {
+											display: grid;
+											grid-template-columns: 1fr 3fr 1fr;
+											grid-template-rows: 100px 1fr 100px;
+											grid-template-areas: "header header header"
+																"aside content nav"
+																"footer footer footer";}
+											.header {grid-area: header;}
+											.aside {grid-area: aside;}
+											.content {grid-area: content;}
+											.nav {grid-area: nav;}
+											.footer {grid-area: footer;}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-area-correct-struct.jpg" alt="grid correct struct">
+									</picture>
+								</figure>
+							</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Grid template</h3>
+						<p>
+							<small>
+								Instead of using properties <span class="emphase">grid-template-columns</span> and <span class="emphase">grid-template-rows</span>, 
+								you can use property <span class="emphase">grid-template</span> to specify the grid area.
+							</small>
+						</p>
+						<pre data-id="code-animation">
+							<code data-trim data-line-numbers>
+									grid-template-rows: repeat(3, 1fr);
+									grid-template-columns: repeat(3, 1fr);
+									// we can replace by
+									grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+							</code>
+						</pre>
+						<p>
+							<small>
+								At first we must specify rows and after through the / columns. The result will be the same.
+							</small>
+						</p>
+						<figure>
+							<picture>
+								<img src="./assets/images/grid-template.jpg" height="200" alt="grid template">
+							</picture>
+						</figure>
+					</section>
+					<section>
+						<h2>Grid template advanced</h3>
+						<p>
+							<small>
+								In case using named areas, we can use a more complex template of the following type.
+							</small>
+						</p>
+						<pre data-id="code-animation">
+							<code data-trim data-line-numbers>
+									grid-template-columns: 1fr 3fr 1fr;
+									grid-template-rows: 100px 1fr 100px;
+									grid-template-areas: "header header header"
+															"aside content nav"
+															"footer footer footer";
+									// we can replace by
+									grid-template: [start] "header header header" 100px [row2]
+									[row2] "aside content nav" 1fr [row3]
+									[row3] "footer footer footer" 100px [row-end] / 1fr 3fr 1fr;
+							</code>
+						</pre>
+						<figure>
+							<picture>
+								<img src="./assets/images/grid-area-correct-struct.jpg" height="300" alt="grid template">
+							</picture>
+						</figure>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Grid auto flow</h3>
+							<p>
+								<small>
+									The <span class="emphase">grid-auto-flow</span> property controls auto-placement of grid items without an explicit position. Once the explicit grid
+									is filled (or if there is no explicit grid) auto-placement will also start the generation of implicit grid tracks.
+								</small>
+							</p>
+					</section>
+					<section>
+						<h2>Grid auto flow</h3>
+							<p>
+								<small>
+									If grid-auto-flow property equals <span class="emphase">row</span>, auto-placement will create new rows for grid tracks.
+								</small>
+							</p>
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									grid-auto-flow: row;
+								</code>
+							</pre>
+							<p>
+								<small>
+									Elements with numbers from 10 to 14 are have not explicit grid because the grid has three row and columns in this example.
+								</small>
+							</p>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-auto-flow-row.jpg" height="200" alt="grid template">
+								</picture>
+							</figure>
+					</section>
+					<section>
+						<h2>Grid auto flow</h3>
+							<p>
+								<small>
+									If grid-auto-flow property equals <span class="emphase">column</span>, auto-placement will create new columns for grid tracks.
+								</small>
+							</p>
+							<pre data-id="code-animation">
+								<code data-trim data-line-numbers>
+									grid-auto-flow: column;
+								</code>
+							</pre>
+							<p>
+								<small>
+									Elements with numbers from 10 to 14 are have not explicit grid because the grid has three row and columns in this example.
+								</small>
+							</p>
+							<figure>
+								<picture>
+									<img src="./assets/images/grid-auto-flow-column.jpg" height="200" alt="grid template">
+								</picture>
+							</figure>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Grid items</h3>
+							<p>
+								<small>
+									Grid elements in Grid Layout have some special features. 
+								</small>
+							</p>
+							<p>
+								<small>
+									1. Inline elements, that are placed in a grid container, acquire
+									the properties of block elements.
+								</small>
+							</p>
+							<p>
+								<small>
+									2. Margins of grid container elements do not collapse.
+								</small>
+							</p>
+					</section>
+					<section>
+						<h2>Grid items placement</h3>
+							<p>
+								<small>
+									Grid elements can be placed in grid using properties: <span class="emphase">grid-row-start</span>,
+									<span class="emphase">grid-row-end</span>, <span class="emphase">grid-column-start</span>,
+									<span class="emphase">grid-column-end</span>.
+								</small>
+							</p>
+							<p>
+								<small>
+									All of these properties have a default value <span class="emphase">auto</span>. 
+									This means that they are placed in the grid automatically.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										grid-row-start: auto;
+										grid-row-end: auto;
+										grid-column-start: auto;
+										grid-column-end: auto;
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-template.jpg" height="300" alt="grid template">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Grid items placement</h3>
+							<p>
+								<small>
+									We can influence the behavior of grid elements by changing properties: <span class="emphase">grid-row-start</span>,
+									<span class="emphase">grid-row-end</span>, <span class="emphase">grid-column-start</span>,
+									<span class="emphase">grid-column-end</span>.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+									.el1 {
+										grid-row-start: 1;
+										grid-row-end: 3;
+										grid-column-start: auto;
+										grid-column-end: auto;
+									}
+									.el7 {
+										grid-row-start: auto;
+										grid-row-end: auto;
+										grid-column-start: 2;
+										grid-column-end: 3;
+									}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-item-placement.jpg" height="300" alt="grid template">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Grid items placement</h3>
+							<p>
+								<small>
+									We can place a grid element anywhere in the grid, regardless of its position in the html code by changing properties: 
+									<span class="emphase">grid-row-start</span>,
+									<span class="emphase">grid-row-end</span>,
+									<span class="emphase">grid-column-start</span>,
+									<span class="emphase">grid-column-end</span>.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+									.el1 {
+										grid-row-start: 2;
+										grid-row-end: auto;
+										grid-column-start: 3;
+										grid-column-end: auto;
+									}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-item-placement-any-place.jpg" height="300" alt="grid template">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Span operator</h3>
+							<p>
+								<small>
+									We can stretch the grid element using the <span class="emphase">span</span> operator in the properties:
+									<span class="emphase">grid-row-start</span>,
+									<span class="emphase">grid-row-end</span>,
+									<span class="emphase">grid-column-start</span>,
+									<span class="emphase">grid-column-end</span>.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+									.el1 {
+										grid-row-start: span 2;
+										grid-row-end: auto;
+										grid-column-start: span 2;
+										grid-column-end: auto;
+									}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-item-placement-span.jpg" height="300" alt="grid template">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Using grid lines names</h3>
+							<p>
+								<small>
+									We also can use symbolic names of grid lines to placement grid elements in grid. We can replace numbers to names inside properties:
+									<span class="emphase">grid-row-start</span>,
+									<span class="emphase">grid-row-end</span>,
+									<span class="emphase">grid-column-start</span>,
+									<span class="emphase">grid-column-end</span> 
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+									.grid {
+										display: grid;
+										grid-template-columns: 
+											[start] 1fr [col2] 1fr [col3] 1fr [col-end];
+										grid-template-rows: 
+											[start] 1fr [row1] 1fr [row2] 1fr [row-end];
+									}
+									.el1 {
+										grid-row-start: row1;
+										grid-row-end: auto;
+										grid-column-start: col2;
+										grid-column-end: auto;
+									}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-item-placement-names.jpg" height="300" alt="grid template">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Short record</h3>
+							<p>
+								<small>
+									We can also use a short notation for properties:
+									<span class="emphase">grid-row</span>,
+									<span class="emphase">grid-column</span>. We also can use names of gridlines here.
+								</small>
+							</p>
+							<div class="columns">
+								<pre data-id="code-animation">
+									<code data-trim data-line-numbers>
+										.el1 {
+											grid-row: 1 / 3;
+											grid-column: 2 / 4;
+										}
+										.el1 {
+											grid-row: start / row2;
+											grid-column: col2 / col-end;
+										}
+									</code>
+								</pre>
+								<figure>
+									<picture>
+										<img src="./assets/images/grid-item-placement-short.jpg" height="300" alt="grid template">
+									</picture>
+								</figure>
+							</div>
+					</section>
+					<section>
+						<h2>Align grid items</h3>
+							<p>
+								<small>
+									We can use properties to align grid elements. For the container it is <span class="emphase">justify-items</span> and <span class="emphase">align-items</span>. 
+									For the element it is <span class="emphase">justify-self</span> and <span class="emphase">align-self</span>.
+								</small>
+							</p>
+							<p>
+								<small>
+									To align the grid element to the center of the cell, use the property <span class="emphase">margin: auto</span>.
+								</small>
+							</p>
+					</section>
+				</section>
+
 			</div>
 		</div>
 
