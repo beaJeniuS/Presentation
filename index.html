@@ -35,7 +35,7 @@
 					<section>
 						<h2>Overview</h3>
 						<p>
-							<small>Unlike the single-axis–oriented Flexible Box Layout, Grid Layout is optimized for 2-dimensional layouts those alignment
+							<small>Flexible Box is the single-axis–oriented Layout. Grid Layout is optimized for 2-dimensional layouts those alignment
 							of content is desired in both dimensions.</small>
 						</p>
 						<figure>
@@ -423,7 +423,7 @@
 						</div>
 					</section>
 					<section>
-						<h2>Sizes in percents</h3>
+						<h2>Sizes in percent</h3>
 							<p>
 								<small>
 									The grid container allows you to use percentages for a set of sizes. 
@@ -457,7 +457,7 @@
 							<p>
 								<small>
 									An additional unit <span class="emphase">fr</span> of length has been developed specifically for Grid Layout. It allows you to create flexible grid
-									tracks. It represents a fraction of the free space of the container.
+									tracks and represents a fraction of the free space of the container.
 								</small>
 							</p>
 							<div class="columns">
@@ -687,7 +687,7 @@
 							</p>
 							<p>
 								<small>
-									If we set the structure specified below, we will get an incorrect incorrect result.
+									If we set the structure specified below, we will get an incorrect result.
 								</small>
 							</p>
 							<div class="columns">
@@ -764,7 +764,7 @@
 						</pre>
 						<p>
 							<small>
-								At first we must specify rows and after through the / columns. The result will be the same.
+								At first, we must specify rows and after through the / columns. The result will be the same.
 							</small>
 						</p>
 						<figure>
@@ -777,7 +777,10 @@
 						<h2>Grid template advanced</h3>
 						<p>
 							<small>
-								In case using named areas, we can use a more complex template of the following type.
+								In case using named areas, we can use a more complex template of the following type. 
+								At first, we specify the start operator to start the row, then we write down the column names, then we specify the row
+								height and the row closing operator. A new line starts with the closing statement of the previous line. The template is
+								closed with the roe-end operator. After that, column widths are specified after the / operator.
 							</small>
 						</p>
 						<pre data-id="code-animation">
@@ -862,7 +865,7 @@
 						<h2>Grid items</h3>
 							<p>
 								<small>
-									Grid elements in Grid Layout have some special features. 
+									Grid items in Grid Layout have some special features. 
 								</small>
 							</p>
 							<p>
@@ -889,7 +892,7 @@
 							<p>
 								<small>
 									All of these properties have a default value <span class="emphase">auto</span>. 
-									This means that they are placed in the grid automatically.
+									It means that grid items are placed in the grid automatically.
 								</small>
 							</p>
 							<div class="columns">
@@ -1007,7 +1010,7 @@
 									<span class="emphase">grid-row-start</span>,
 									<span class="emphase">grid-row-end</span>,
 									<span class="emphase">grid-column-start</span>,
-									<span class="emphase">grid-column-end</span> 
+									<span class="emphase">grid-column-end</span>.
 								</small>
 							</p>
 							<div class="columns">
